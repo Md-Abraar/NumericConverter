@@ -6,16 +6,16 @@ let errorMsg = document.getElementById("error-msg");
 
 decInp.addEventListener("input", () => {
   let decValue = parseInt(decInp.value);
-  binInp.value = decValue.toString(2);
-  octInp.value = decValue.toString(8);
+  binInp.value = decInp.value==""?"":decValue.toString(2);
+  octInp.value = decInp.value==""?"":decValue.toString(8);
   hexInp.value = decInp.value==""?"":decValue.toString(16).toUpperCase();
 });
 
 binInp.addEventListener("input", () => {
   let binValue = binInp.value;
   if (binValidator(binValue)) {
-    decInp.value = parseInt(binValue, 2);
-    octInp.value = parseInt(binValue, 2).toString(8);
+    decInp.value = binInp.value==""?"":parseInt(binValue, 2);
+    octInp.value = binInp.value==""?"":parseInt(binValue, 2).toString(8);
     hexInp.value = binInp.value==""?"":parseInt(binValue, 2).toString(16).toUpperCase();
    errorMsg.textContent = "";
   }
